@@ -1,0 +1,29 @@
+### Install a REST-client plugin in your editor, or copy these URLs into curl.
+@base = http://127.0.0.1:8000
+
+### Application is alive
+GET {{base}}/api/v1/health/live
+
+### Resource readiness
+GET {{base}}/api/v1/health/ready
+
+### ID correlation (development/testing only)
+GET {{base}}/api/v1/debug/request
+
+### Dependency composition
+GET {{base}}/api/v1/debug/dependency
+
+### Domain exception: 404
+GET {{base}}/api/v1/debug/not-found
+
+### Query validation: valid
+GET {{base}}/api/v1/debug/pagination?limit=25&offset=0
+
+### Query validation: invalid 422
+GET {{base}}/api/v1/debug/pagination?limit=250
+
+### Unexpected failure: controlled 500
+GET {{base}}/api/v1/debug/boom
+
+### Method not allowed 405
+POST {{base}}/api/v1/health/live
